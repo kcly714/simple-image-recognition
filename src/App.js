@@ -16,7 +16,7 @@ class App extends Component {
         console.log('Model has been loaded')
       }
       const image = document.getElementById('image');
-      classifier.predict(image, 5, function(err, results) {
+      classifier.predict(image, 5, function(error, results) {
         // Return the results from predictions
           return results;
         })
@@ -28,10 +28,10 @@ class App extends Component {
   componentDidMount(){
       this.classifyImage();
     }
-  setPredictions = (pred) => {
+  setPredictions = (predictions) => {
     // Set the prediction state with the results from the model prediction
     this.setState({
-        predictions: pred
+        predictions
       });
   }
   render() {
@@ -50,7 +50,7 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <h1>Classifying image using ML5.JS</h1>
+        <h1>Classifying a image using ML5.JS</h1>
         <h3>Incase you were wondering, the animal below is a snow leopard</h3>
         <img src={snowleopard} width="400" alt="" id="image" /> 
         {predictions}
